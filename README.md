@@ -1,7 +1,25 @@
 # Trab_FTF
 Trabalho de FTF - Injeção de Falhas - UFRGS
 
-### CAROL-FI
+## Árvores (Data-Structs)
+* RB Tree (_Red and Black_)
+* AVL Tree
+* B Tree (_default binary tree_)
+* (?)
+
+## Algoritmo de Teste
+Código _MAIN_
+* __MAX:__ 2001 (_quantidade de nós_)
+* __RANGE:__ \[  -MAX/2, MAX/2 \] 
+```
+- Popula lista de nós conforme o RANGE
+- Embaralha os nós na lista 
+- insere todos nós na árvore
+- imprime nós da árvore em ordem
+- salva saída em binário
+```
+
+## CAROL-FI
 A linha de comando para executar o CAROL-FI é a seguinte:
 
 Então, para executar o injetor de falhas, use o seguinte comando:
@@ -22,5 +40,6 @@ $ cd ~/carol-fi
 $ ./fault_injector.py -c ../RBTree/RBTree.conf -i 10
 ```
 
-### Sobre o CAROL-FI
-* Repositório <https://github.com/UFRGS-CAROL/carol-fi>
+## Links
+* Repositório CAROL-FI <https://github.com/UFRGS-CAROL/carol-fi>
+* Repositório RBTree <https://github.com/anandarao/Red-Black-Tree>
