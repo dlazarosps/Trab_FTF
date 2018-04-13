@@ -6,10 +6,13 @@
 #include <vector>       // std::vector
 #include <ctime>        // std::time
 #include <cstdlib>      // std::rand, std::srand
+#include <fstream>		// std::fstream
 
 #define MAX 2000
 
 using namespace std;
+
+std::fstream fs;
 
 struct AVLTree
 {
@@ -42,10 +45,11 @@ int count(struct AVLTree *root)
 
 void print(struct AVLTree *root)
 {
+
 	if(root->left)
 		print(root->left);
 	if(root)
-		cout << root->data << " ";
+		fs << root->data << " ";
 	if(root->right)
 		print(root->right);
 }
@@ -270,7 +274,7 @@ struct AVLTree *find(struct AVLTree *root, int data)
 // random generator function:
 int myrandom (int i) { return std::rand()%i;}
 
-int main()
+int main(int argc, char *argv[])
 {
 
 	vector<int>v_nodes(MAX); //vetor de nós
@@ -287,9 +291,11 @@ int main()
     for(int i = 0; i < v_nodes.size(); i++)
         root = add(root, v_nodes[i]);
 
-
+    fs.open(argv[1], std::fstream::out | std::fstream::app);
     //printExtended(root, 0);
     print(root);
+
+    fs.close();
 
 	return 0;
 }
