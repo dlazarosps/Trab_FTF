@@ -9,13 +9,13 @@ Trabalho de FTF - Injeção de Falhas - UFRGS
 
 ## Algoritmo de Teste
 Código _MAIN_
-* __MAX:__ <input size> (_quantidade de nós_)
+* __MAX:__ < input size > (_quantidade de nós_)
 * __RANGE:__ \[  -MAX/2, MAX/2 \] 
 ```
 - Popula lista de nós conforme o RANGE
 - Embaralha os nós na lista 
 - insere todos nós na árvore
-- imprime nós da árvore em ordem
+- imprime nós da árvore em ordem crescente
 - salva saída em binário
 ```
 
