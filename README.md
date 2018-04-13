@@ -4,12 +4,12 @@ Trabalho de FTF - Injeção de Falhas - UFRGS
 ## Árvores (Data-Structs)
 * RB Tree (_Red and Black_)
 * AVL Tree
-* B Tree (_default binary tree_)
+* BS Tree (_Binary Search_)
 * (?)
 
 ## Algoritmo de Teste
 Código _MAIN_
-* __MAX:__ 2001 (_quantidade de nós_)
+* __MAX:__ <input size> (_quantidade de nós_)
 * __RANGE:__ \[  -MAX/2, MAX/2 \] 
 ```
 - Popula lista de nós conforme o RANGE
