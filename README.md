@@ -43,3 +43,4 @@ $ ./fault_injector.py -c ../RBTree/RBTree.conf -i 10
 ## Links
 * Repositório CAROL-FI <https://github.com/UFRGS-CAROL/carol-fi>
 * Repositório RBTree <https://github.com/anandarao/Red-Black-Tree>
+* Repositório AVLTree <https://gist.github.com/Zedonax/4107974>
