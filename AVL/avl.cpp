@@ -104,7 +104,7 @@ int heightDiff(AVLTree *root)
 	else
 		heightRight = 0;
 	return heightRight - heightLeft;
-} 
+}
 
 struct AVLTree *rotateLeft(struct AVLTree *root)
 {
@@ -152,7 +152,7 @@ struct AVLTree *add(struct AVLTree *root, int data)
 		return gen(data);
 	else if(data < root->data)
 		root->left = add(root->left, data);
-    else if(data > root->data) 
+    else if(data > root->data)
 		root->right = add(root->right, data);
 	root = sort(root);
     return root;
@@ -244,7 +244,7 @@ struct AVLTree *del(struct AVLTree *root, int data)
 				return sort(tmp);
 			}
 			else // if(root->left && !root->right)
-			{	
+			{
 				struct AVLTree *tmp = root->left;
 				delete root;
 				return sort(tmp);
@@ -283,7 +283,7 @@ int main(int argc, char *argv[])
 	struct AVLTree *root = 0;
 
 	std::generate(v_nodes.begin(), v_nodes.end(), [&]{ return i++; });
-    
+
     // Embaralhar elementos do vetor
     std::random_shuffle (v_nodes.begin(), v_nodes.end(),  myrandom);
 
