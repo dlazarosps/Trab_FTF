@@ -2,10 +2,10 @@
 Trabalho de FTF - Injeção de Falhas - UFRGS
 
 ## Árvores (Data-Structs)
-* RB Tree (_Red and Black_)
 * AVL Tree
-* BS Tree (_Binary Search_)
-* (?)
+* Binary Tree
+* BTree
+* RB Tree (_Red and Black_)
 
 ## Algoritmo de Teste
 Código _MAIN_
@@ -17,6 +17,17 @@ Código _MAIN_
 - insere todos nós na árvore
 - imprime nós da árvore em ordem crescente
 - salva saída em binário
+```
+### Diretório 
+```
+~$ ls
+ . Trab_FTF
+ ├── AVL
+ ├── Btree
+ ├── BinaryTree
+ ├── CarolFI (local)
+ ├── RBTree
+ └─ README.md
 ```
 
 ## CAROL-FI
