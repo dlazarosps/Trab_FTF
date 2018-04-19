@@ -40,6 +40,7 @@ It is advised to read the material in CLRS before taking a look at the code. */
 #include <ctime>        // std::time
 #include <cstdlib>      // std::rand, std::srand
 #include <cstdio>
+#include <bitset>
 
 // #define MAX_LEAF 2000
 using namespace std;
@@ -588,7 +589,7 @@ void BTreeNode::traverse()
 		// traverse the subtree rooted with child C[i].
 		if (leaf == false)
 			C[i]->traverse();
-		cout << " " << keys[i];
+		cout << std::bitset<16>(keys[i]) << endl;
 	}
 
 	// Print the subtree rooted with last child
