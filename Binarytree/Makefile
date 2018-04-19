@@ -10,7 +10,7 @@ gen_bin: btree.cpp
 	$(CC) $(CC_FLAGS) -o main btree.cpp
 
 gen_data: gen_bin
-	./main 10 gold_file
+	./main 200000 gold_file
 
 mv_bin: gen_data
 	mkdir -p $(destDir)

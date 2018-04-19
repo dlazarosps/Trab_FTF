@@ -170,46 +170,44 @@ int myrandom (int i) { return std::rand()%i;}
 
 int main(int argc, char * argv[]){
 
+	static const char filename[] = "mytest.txt";
+  FILE *file = fopen (filename, "r");
 
-	if (argc != 3){
-			cerr << "Uso correto: ./main <input size> <output file> " << endl;
-			return 0;
-	}
-
-
-	//btree tree;
 	int max_leaf = atoi(argv[1]); //input size
 	btree *tree = new btree();
 	vector<int>v_nodes(max_leaf); //vetor de nós
-  int i = -((max_leaf-1)/2); //limite inferior de valores
 
-	generate(v_nodes.begin(), v_nodes.end(), [&]{ return i++; });
 
-    // Embaralhar elementos do vetor
-  random_shuffle (v_nodes.begin(), v_nodes.end(),  myrandom);
+   	if ( file != NULL )
+   	{
+      		char line [ 10 ]; /* or other suitable maximum line size */
+      		while ( fgets ( line, sizeof line, file ) != NULL ) /* read a line */
+      		{
+        	//fputs ( line, stdout ); /* write the line */
+					int number = atoi(line);
+					//printf("%i\n",number);
+					tree->insert(number);
+      		}
+					freopen(argv[2],"w",stdout);
+					tree->inorder_print();
+					fclose (stdout);
 
-	//insere na arvore
-	for(int i = 0; i < v_nodes.size(); i++){
-			tree->insert(v_nodes[i]);
-	}
+				//delete tree;
 
-	// tree->insert(10);
-	// tree->insert(6);
-	// tree->insert(14);
-	// tree->insert(5);
-	// tree->insert(8);
-	// tree->insert(11);
-	// tree->insert(18);
+      		fclose ( file );
+					return 0;
+   	}
+   	else
+   	{
+      		fprintf(stderr, "File not found or cannot be open %s", argv[1]);
+	   	exit(2);
+   	}
+
 
 	 // tree->preorder_print();
 	 // tree->inorder_print();
 	 // tree->postorder_print();
 
 	//salva print da saida em arquivo output
-	freopen(argv[2],"w",stdout);
-	tree->inorder_print();
-	fclose (stdout);
 
-	//delete tree;
-	return 0;
 }
