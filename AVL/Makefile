@@ -10,7 +10,7 @@ gen_bin: avl.cpp
 	$(CC) $(CC_FLAGS) -o main avl.cpp
 
 gen_data: gen_bin
-	./main gold_auto
+	./main 5000 gold_auto
 
 mv_bin: gen_data
 	mkdir -p $(destDir)

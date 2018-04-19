@@ -8,11 +8,7 @@
 #include <cstdlib>      // std::rand, std::srand
 #include <fstream>		// std::fstream
 
-#define MAX 2000
-
 using namespace std;
-
-std::fstream fs;
 
 struct AVLTree
 {
@@ -49,7 +45,7 @@ void print(struct AVLTree *root)
 	if(root->left)
 		print(root->left);
 	if(root)
-		fs << root->data << " ";
+		cout << std::bitset<16>(root->data) << endl;
 	if(root->right)
 		print(root->right);
 }
@@ -272,11 +268,12 @@ struct AVLTree *find(struct AVLTree *root, int data)
 }
 
 // random generator function:
-int myrandom (int i) { return std::rand()%i;}
+int myrandom (int i) { std::srand(std::time(nullptr)); return std::rand()%(i*2);}
 
 int main(int argc, char *argv[])
 {
 
+	int MAX = atoi(argv[1]); //input size
 	vector<int>v_nodes(MAX); //vetor de nós
     int i = -((MAX-1)/2); //limite inferior de valores
 
@@ -291,11 +288,12 @@ int main(int argc, char *argv[])
     for(int i = 0; i < v_nodes.size(); i++)
         root = add(root, v_nodes[i]);
 
-    fs.open(argv[1], std::fstream::out | std::fstream::app);
+
+    freopen(argv[2],"w",stdout);
     //printExtended(root, 0);
     print(root);
 
-    fs.close();
+    fclose(stdout);
 
 	return 0;
 }
