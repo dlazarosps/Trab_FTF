@@ -31,16 +31,18 @@ Reference: CLRS3 - Chapter 18 - (499-502)
 It is advised to read the material in CLRS before taking a look at the code. */
 
 #include<iostream>
-#include <vector>
 #include <bits/stdc++.h>
+#include <vector>
+
 #include <iostream>     // std::cout
 #include <algorithm>    // std::random_shuffle
 #include <vector>       // std::vector
 #include <ctime>        // std::time
 #include <cstdlib>      // std::rand, std::srand
 #include <cstdio>
+#include <bitset>
 
-#define MAX_LEAF 2000
+// #define MAX_LEAF 2000
 using namespace std;
 
 // A BTree node
@@ -587,7 +589,7 @@ void BTreeNode::traverse()
 		// traverse the subtree rooted with child C[i].
 		if (leaf == false)
 			C[i]->traverse();
-		cout << " " << keys[i];
+		cout << std::bitset<16>(keys[i]) << endl;
 	}
 
 	// Print the subtree rooted with last child
@@ -657,9 +659,9 @@ int main(int argc, char * argv[])
 	//btree *tree = new btree();
 	BTree t(3);
 	
-	vector<int>v_nodes(max_leaf); //vetor de nós
+	vector<int>v_nodes(max_leaf+1); //vetor de nós
 
-	 int i = -((max_leaf-1)/2); //limite inferior de valores
+	 int i = -((max_leaf)/2); //limite inferior de valores
 
 	generate(v_nodes.begin(), v_nodes.end(), [&]{ return i++; });
 
@@ -672,66 +674,6 @@ int main(int argc, char * argv[])
 	for(int i = 0; i < v_nodes.size(); i++){
 			t.insert(v_nodes[i]);
 	}
-
-/*
-	t.insert(1);
-	t.insert(3);
-	t.insert(7);
-	t.insert(10);
-	t.insert(11);
-	t.insert(13);
-	t.insert(14);
-	t.insert(15);
-	t.insert(18);
-	t.insert(16);
-	t.insert(19);
-	t.insert(24);
-	t.insert(25);
-	t.insert(26);
-	t.insert(21);
-	t.insert(4);
-	t.insert(5);
-	t.insert(20);
-	t.insert(22);
-	t.insert(2);
-	t.insert(17);
-	t.insert(12);
-	t.insert(6);
-
-	cout << "Traversal of tree constructed is\n";
-	t.traverse();
-	cout << endl;
-
-	t.remove(6);
-	cout << "Traversal of tree after removing 6\n";
-	t.traverse();
-	cout << endl;
-
-	t.remove(13);
-	cout << "Traversal of tree after removing 13\n";
-	t.traverse();
-	cout << endl;
-
-	t.remove(7);
-	cout << "Traversal of tree after removing 7\n";
-	t.traverse();
-	cout << endl;
-
-	t.remove(4);
-	cout << "Traversal of tree after removing 4\n";
-	t.traverse();
-	cout << endl;
-
-	t.remove(2);
-	cout << "Traversal of tree after removing 2\n";
-	t.traverse();
-	cout << endl;
-
-	t.remove(16);
-	cout << "Traversal of tree after removing 16\n";
-	t.traverse();
-	cout << endl;
-*/
 
 	freopen(argv[2],"w",stdout);
 	t.traverse();
