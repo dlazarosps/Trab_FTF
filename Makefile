@@ -13,8 +13,9 @@ gen_data: gen_bin
 	./inputer 50000 input
 
 # TO DO mover arquivo gerado para pasta da arvore e rodar makefile da arvore 
-# rb_tree: all
-# 	mkdir -p $(destDir)
-# 	mv input_50000 $(destDir)
+rb_tree: all
+	mkdir -p $(destDir)
+	mv input_50000 $(destDir)
+
 # 	@echo "All Done, executables should be in the $(destDir)"
 # 	$(MAKE) ./RBTree/make gen_data
