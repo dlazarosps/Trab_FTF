@@ -2,8 +2,9 @@
 CC = g++ 
 CC_FLAGS = -fopenmp -std=c++11
 
-inputFile = input_50000
-outputFile = gold_50000
+size = 1000
+inputFile = input_$(size)
+outputFile = gold_$(size)
 destDir = /tmp/AVLTree
 
 all: gen_bin gen_data mv_bin
