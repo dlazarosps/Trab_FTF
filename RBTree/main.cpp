@@ -15,43 +15,33 @@
 #include <cstdlib>      // std::rand, std::srand
 #include <cstdio>
 
-// #define MAX 50001 
+#include <iterator>
+#include <fstream>
+
 using namespace std;
-
-//função para printar em tela
-void printvector(std::vector<int> v_nodes){
-    std::copy(v_nodes.begin(), v_nodes.end(), std::ostream_iterator<int>(std::cout, ", "));
-    std::cout << endl;
-    std::cout << "--------" <<endl;
-}
-
-// random generator function:
-int myrandom (int i) { return std::rand()%i;}
 
 int main(int argc, char * argv[]) {
 
     if (argc != 3){
-        cerr << "Uso correto: ./main <input size> <output file> " << endl;
+        cerr << "Uso correto: ./main [input file] [output file] " << endl;
         return 0;
     }
 
-
-    int max = atoi(argv[1]); //input size
-    RBTree rbTree1; //arvore R&B
-    vector<int>v_nodes(max+1); //vetor de nós
-    int i = -((max)/2); //limite inferior de valores
-
-    // Preenche array com valores de -i até +i
-    std::generate(v_nodes.begin(), v_nodes.end(), [&]{ return i++; });
-
-    // Imprime vetor conforme ordem de inserção
-    // printvector(v_nodes);
+    std::ifstream is(argv[1]);
+    std::istream_iterator<int> start(is), end;
+    std::vector<int> v_nodes(start, end);
     
-    // Embaralhar elementos do vetor
-    std::random_shuffle (v_nodes.begin(), v_nodes.end(),  myrandom);
+    // print the v_nodes to stdout
+    /*
+        std::cout << "Read " << v_nodes.size() << " v_nodes" << std::endl;
+        std::cout << "v_nodes read in:\n";
+        std::copy(v_nodes.begin(), v_nodes.end(), 
+            std::ostream_iterator<double>(std::cout, " "));
+        std::cout << std::endl;
+    */
 
-    // Imprime vetor após elementos embaralhados
-    // printvector(v_nodes);
+
+    RBTree rbTree1; //arvore R&B
 
     //insere na arvore
     for(int i = 0; i < v_nodes.size(); i++)

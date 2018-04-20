@@ -10,7 +10,7 @@ gen_bin: main.cpp RBTree.cpp
 	$(CC) $(CC_FLAGS) -o main main.cpp RBTree.cpp
 
 gen_data: gen_bin
-	./main 50000 gold_
+	./main input_50000 gold_50000
 
 mv_bin: gen_data
 	mkdir -p $(destDir)
