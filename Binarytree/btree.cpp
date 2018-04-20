@@ -119,7 +119,7 @@ void btree::destroy_tree(){
 }
 
 void btree::inorder_print(){
-	inorder_print_binary(root);
+	inorder_print(root);
 	cout << "\n";
 }
 
@@ -170,12 +170,11 @@ int myrandom (int i) { return std::rand()%i;}
 
 int main(int argc, char * argv[]){
 
-	static const char filename[] = "mytest.txt";
-  FILE *file = fopen (filename, "r");
+  FILE *file = fopen (argv[1], "r");
 
-	int max_leaf = atoi(argv[1]); //input size
+	//int max_leaf = atoi(argv[1]); //input size
 	btree *tree = new btree();
-	vector<int>v_nodes(max_leaf); //vetor de nós
+	//vector<int>v_nodes(max_leaf); //vetor de nós
 
 
    	if ( file != NULL )
