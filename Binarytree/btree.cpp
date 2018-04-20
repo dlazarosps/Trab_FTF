@@ -119,7 +119,7 @@ void btree::destroy_tree(){
 }
 
 void btree::inorder_print(){
-	inorder_print(root);
+	inorder_print_binary(root);
 	cout << "\n";
 }
 
