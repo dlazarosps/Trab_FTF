@@ -168,40 +168,29 @@ void btree::preorder_print(node *leaf){
 // random generator function:
 int myrandom (int i) { return std::rand()%i;}
 
-int main(int argc, char * argv[]){
+int main(int argc, char * argv[]) {
 
-  FILE *file = fopen (argv[1], "r");
+	if (argc != 3){
+			cerr << "Uso correto: ./main [input file] [output file] " << endl;
+			return 0;
+	}
 
-	//int max_leaf = atoi(argv[1]); //input size
+	std::ifstream is(argv[1]);
+	std::istream_iterator<int> start(is), end;
+	std::vector<int> v_nodes(start, end);
+
+
 	btree *tree = new btree();
-	//vector<int>v_nodes(max_leaf); //vetor de nós
 
+	//insere na arvore
+	for(int i = 0; i < v_nodes.size()+1; i++)
+			tree->insert(v_nodes[i]);
 
-   	if ( file != NULL )
-   	{
-      		char line [ 10 ]; /* or other suitable maximum line size */
-      		while ( fgets ( line, sizeof line, file ) != NULL ) /* read a line */
-      		{
-        	//fputs ( line, stdout ); /* write the line */
-					int number = atoi(line);
-					//printf("%i\n",number);
-					tree->insert(number);
-      		}
-					freopen(argv[2],"w",stdout);
-					tree->inorder_print();
-					fclose (stdout);
+	freopen(argv[2],"w",stdout);
+	tree->inorder_print();
 
-				//delete tree;
-
-      		fclose ( file );
-					return 0;
-   	}
-   	else
-   	{
-      		fprintf(stderr, "File not found or cannot be open %s", argv[1]);
-	   	exit(2);
-   	}
-
+	fclose(stdout);
+	return 0;
 
 	 // tree->preorder_print();
 	 // tree->inorder_print();
