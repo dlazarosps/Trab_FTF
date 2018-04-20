@@ -273,27 +273,25 @@ int myrandom (int i) { std::srand(std::time(nullptr)); return std::rand()%(i*2);
 int main(int argc, char *argv[])
 {
 
-	int MAX = atoi(argv[1]); //input size
-	vector<int>v_nodes(MAX); //vetor de nós
-    int i = -((MAX-1)/2); //limite inferior de valores
+    if (argc != 3){
+        cerr << "Uso correto: ./main [input file] [output file] " << endl;
+        return 0;
+    }
+
+    std::ifstream is(argv[1]);
+    std::istream_iterator<int> start(is), end;
+    std::vector<int> v_nodes(start, end);
+
 
 	struct AVLTree *root = 0;
 
-	std::generate(v_nodes.begin(), v_nodes.end(), [&]{ return i++; });
-
-    // Embaralhar elementos do vetor
-    std::random_shuffle (v_nodes.begin(), v_nodes.end(),  myrandom);
-
     //insere na arvore
-    for(int i = 0; i < v_nodes.size(); i++)
+    for(int i = 0; i < v_nodes.size()+1; i++)
         root = add(root, v_nodes[i]);
 
-
     freopen(argv[2],"w",stdout);
-    //printExtended(root, 0);
     print(root);
 
     fclose(stdout);
-
 	return 0;
 }
