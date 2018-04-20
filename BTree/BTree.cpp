@@ -649,6 +649,38 @@ int myrandom (int i) { return std::rand()%i;}
 // Driver program to test above functions
 int main(int argc, char * argv[])
 {
+/*********************************/
+  BTree t(3);
+  FILE *file = fopen (argv[1], "r");
+
+
+   	if ( file != NULL )
+   	{
+      		char line [ 10 ]; /* or other suitable maximum line size */
+      		while ( fgets ( line, sizeof line, file ) != NULL ) /* read a line */
+      		{
+        	//fputs ( line, stdout ); /* write the line */
+					int number = atoi(line);
+					//printf("%i\n",number);
+					t.insert(number);
+      		}
+					freopen(argv[2],"w",stdout);
+					t.traverse();
+					fclose (stdout);
+
+				//delete tree;
+
+      		fclose ( file );
+					return 0;
+   	}
+   	else
+   	{
+      		fprintf(stderr, "File not found or cannot be open %s", argv[1]);
+	   	exit(2);
+   	}
+
+
+/*********************************
 
 	if (argc != 3){
 			cerr << "Uso correto: ./main <input size> <output file> " << endl;
@@ -679,6 +711,6 @@ int main(int argc, char * argv[])
 	t.traverse();
 	fclose (stdout);
 
-	return 0;
+	return 0; */
 }
 
