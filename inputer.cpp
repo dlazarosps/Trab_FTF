@@ -51,7 +51,8 @@ int main(int argc, char const *argv[])
 
     int result;
   	std::string oldname = argv[2];
-  	std::string newname = oldname + "_" + argv[1];
+  	std::string newname = "input_";
+  				newname += argv[1];
 
   	//renomeia o arquivo output com o número de inputs
 	result= rename(oldname.c_str() , newname.c_str());

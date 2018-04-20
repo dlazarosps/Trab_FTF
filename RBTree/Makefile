@@ -10,11 +10,9 @@ gen_bin: main.cpp RBTree.cpp
 	$(CC) $(CC_FLAGS) -o main main.cpp RBTree.cpp
 
 gen_data: gen_bin
-	./main input_50000 gold_50000
+	./main input_ gold_
 
 mv_bin: gen_data
 	mkdir -p $(destDir)
-	mv main  input_50000 gold_50000 $(destDir)
+	mv main  input_ gold_ $(destDir)
 	@echo "All Done, executables should be in the $(destDir)"
-
-
