@@ -6,9 +6,14 @@
 #include <vector>       // std::vector
 #include <ctime>        // std::time
 #include <cstdlib>      // std::rand, std::srand
-#include <fstream>		// std::fstream
+#include <cstdio>
+
+#include <iterator>
+#include <fstream>
 
 using namespace std;
+
+//std::vector<int> vectorOut;
 
 struct AVLTree
 {
@@ -278,20 +283,19 @@ int main(int argc, char *argv[])
         return 0;
     }
 
+    struct AVLTree *root = 0;
+
     std::ifstream is(argv[1]);
     std::istream_iterator<int> start(is), end;
     std::vector<int> v_nodes(start, end);
 
-
-	struct AVLTree *root = 0;
-
     //insere na arvore
-    for(int i = 0; i < v_nodes.size()+1; i++)
+    for(int i = 0; i < v_nodes.size(); i++)
         root = add(root, v_nodes[i]);
-
+    
     freopen(argv[2],"w",stdout);
     print(root);
+    fclose (stdout);
 
-    fclose(stdout);
 	return 0;
 }
