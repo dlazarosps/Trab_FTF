@@ -5,12 +5,12 @@ CC_FLAGS = -fopenmp -std=c++11
 size = 50000
 inputFile = input_$(size)
 outputFile = gold_$(size)
-destDir = /tmp/BinaryTree
+destDir = /tmp/Tree234
 
 all: gen_bin gen_data mv_bin
 
-gen_bin: btree.cpp
-	$(CC) $(CC_FLAGS) -o main btree.cpp
+gen_bin: tree234.cpp
+	$(CC) $(CC_FLAGS) -o main tree234.cpp
 
 gen_data: gen_bin
 	./main $(inputFile) $(outputFile)
