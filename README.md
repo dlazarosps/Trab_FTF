@@ -8,27 +8,35 @@ Trabalho de FTF - Injeção de Falhas - UFRGS
 * RB Tree (_Red and Black_)
 
 ## Algoritmo de Teste
-Código _INPUTER_
-* __MAX:__ PARM_SIZE (_quantidade de nós_)
-* __RANGE:__ \[  -MAX/2, MAX/2 \] 
-```
-- Popula lista de nós conforme o RANGE
-- Embaralha os nós na lista
-- gera arquivo de input
-```
+* config _PARAMETERS_
+	* seqSignals = 5
+	* numThreadsFI = 3
+	* maxWaitTime = 10
+	* faultModel = [0, 1, 2, 3, 4]
+	* injections = 10 000 (_-i_)
+	* nodos = 50 000 (_INPUT SIZE_)
 
-Como gerar inputs
-` $ make PARM_SIZE= ` __XYZ__ (_quantidade de nós_)
+* Código _INPUTER_
+	* __MAX:__ PARM_SIZE (_quantidade de nós_)
+	* __RANGE:__ \[  -MAX/2, MAX/2 \] 
+	```
+	- Popula lista de nós conforme o RANGE
+	- Embaralha os nós na lista
+	- gera arquivo de input
+	```
+	Como gerar inputs
+	` $ make PARM_SIZE= ` __XYZ__ (_quantidade de nós_)
 
- Código _MAIN_
-* __INPUTFILE:__ arquivo de entrada gerado pelo inputer
-* __OUTPUTFILE:__ gold_ OU output_ (_Carol-FI_)
-```
-- Lê arquivo de input
-- insere todos nós na árvore
-- imprime nós da árvore em ordem crescente
-- salva saída em binário
-```
+* Código _MAIN_
+	* __INPUTFILE:__ arquivo de entrada gerado pelo inputer
+	* __OUTPUTFILE:__ gold_ OU output_ (_Carol-FI_)
+	```
+	- Lê arquivo de input
+	- insere todos nós na árvore
+	- imprime nós da árvore em ordem crescente
+	- salva saída em binário
+	```
+
 ### Diretório 
 ```
 ~$ ls
