@@ -15,5 +15,6 @@ gen_data: gen_bin
 mv_bin: gen_data
 	mkdir -p $(destDir)
 	mv main $(destDir)
-	cp input_ gold_ $(destDir)
+	cp input_ $(destDir)
+	cp gold_ $(destDir)
 	@echo "All Done, executables should be in the $(destDir)"
