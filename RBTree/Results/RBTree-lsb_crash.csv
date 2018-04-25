@@ -1,0 +1,8 @@
+Variable Name;Variable File;Variable Line;Fault Injection Time(s);Injection Time Interval;Fault Model
+_dl_skip_args;rtld.c;84;0.8273839950561523;0-2;LSB bit-flip
+user_entry;../elf/dl-sysdep.c;89;0.31386303901672363;0-2;LSB bit-flip
+_rtld_local_ro;rtld.c;202;0.6644611358642578;0-2;LSB bit-flip
+_dl_skip_args;rtld.c;84;0.6862101554870605;0-2;LSB bit-flip
+user_entry;../elf/dl-sysdep.c;89;0.6991360187530518;0-2;LSB bit-flip
+user_entry;../elf/dl-sysdep.c;89;0.8612315654754639;0-2;LSB bit-flip
+user_entry;../elf/dl-sysdep.c;89;0.565300464630127;0-2;LSB bit-flip

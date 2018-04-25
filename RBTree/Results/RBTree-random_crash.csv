@@ -1,0 +1,16 @@
+Variable Name;Variable File;Variable Line;Fault Injection Time(s);Injection Time Interval;Fault Model
+_rtld_global;rtld.c;140;0.6504306793212891;0-2;Random bit-flip
+_rtld_global;rtld.c;140;0.30322957038879395;0-2;Random bit-flip
+main_arena;malloc.c;1760;0.7325997352600098;0-2;Random bit-flip
+_rtld_local;rtld.c;162;0.9726290702819824;0-2;Random bit-flip
+thread_arena;arena.c;69;0.9808449745178223;0-2;Random bit-flip
+user_entry;../elf/dl-sysdep.c;89;0.8934173583984375;0-2;Random bit-flip
+_dl_skip_args;rtld.c;84;1.166534185409546;0-2;Random bit-flip
+_dl_argv;rtld.c;86;0.4502885341644287;0-2;Random bit-flip
+_rtld_global_ro;rtld.c;168;1.2484772205352783;0-2;Random bit-flip
+_dl_skip_args;rtld.c;84;0.9942724704742432;0-2;Random bit-flip
+user_entry;../elf/dl-sysdep.c;89;0.9181530475616455;0-2;Random bit-flip
+user_entry;../elf/dl-sysdep.c;89;1.2208693027496338;0-2;Random bit-flip
+_dl_argv;rtld.c;86;0.5587174892425537;0-2;Random bit-flip
+_rtld_global_ro;rtld.c;168;0.7694821357727051;0-2;Random bit-flip
+user_entry;../elf/dl-sysdep.c;89;0.8225641250610352;0-2;Random bit-flip

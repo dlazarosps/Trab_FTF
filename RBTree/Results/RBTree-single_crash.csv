@@ -1,0 +1,13 @@
+Variable Name;Variable File;Variable Line;Fault Injection Time(s);Injection Time Interval;Fault Model
+_rtld_local;rtld.c;162;0.7458312511444092;0-2;Single bit-flip
+_rtld_local;rtld.c;162;0.4281504154205322;0-2;Single bit-flip
+_rtld_global;rtld.c;140;0.8586940765380859;0-2;Single bit-flip
+_dl_skip_args;rtld.c;84;0.4058840274810791;0-2;Single bit-flip
+_dl_skip_args;rtld.c;84;1.2840337753295898;0-2;Single bit-flip
+__GI__dl_argv;rtld.c;83;0.30640363693237305;0-2;Single bit-flip
+_dl_skip_args;rtld.c;84;0.5242750644683838;0-2;Single bit-flip
+_dl_argv;rtld.c;86;0.5067598819732666;0-2;Single bit-flip
+user_entry;../elf/dl-sysdep.c;89;0.8376369476318359;0-2;Single bit-flip
+user_entry;../elf/dl-sysdep.c;89;0.6895759105682373;0-2;Single bit-flip
+_rtld_global_ro;rtld.c;168;1.0306074619293213;0-2;Single bit-flip
+_dl_skip_args;rtld.c;84;1.1378531455993652;0-2;Single bit-flip

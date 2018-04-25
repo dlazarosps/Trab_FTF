@@ -1,0 +1,24 @@
+bitflips:;5492
+SDCs:;141
+Crashes:;2
+Simultaneous SDCs and Crashes:;0
+
+FaultModels SDCs:
+FaultModel ;#SDCs; percentage
+Zero bit-flip;141;100.0
+
+FaultModels Crashes:
+FaultModel ;#Crashes; percentage
+Zero bit-flip;2;1.4184397163120568
+
+Variables that caused SDCs:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+14.316702819956618;461;66;_IO_file_jumps;fileops.c;1560
+12.871287128712872;404;52;__GI__IO_file_jumps;fileops.c;1537
+4.3478260869565215;391;17;_IO_file_jumps_maybe_mmap;fileops.c;1586
+1.3513513513513513;444;6;_IO_file_jumps_mmap;fileops.c;1562
+
+Variables that caused Crash:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+0.7407407407407408;135;1;_rtld_global_ro;rtld.c;168
+0.6896551724137931;145;1;user_entry;../elf/dl-sysdep.c;89
