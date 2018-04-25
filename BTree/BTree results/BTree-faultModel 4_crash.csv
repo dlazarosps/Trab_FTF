@@ -1,0 +1,5 @@
+Variable Name;Variable File;Variable Line;Fault Injection Time(s);Injection Time Interval;Fault Model
+_rtld_global;rtld.c;140;0.8652386665344238;0-2;LSB bit-flip
+_rtld_global;rtld.c;140;0.8235461711883545;0-2;LSB bit-flip
+_dl_skip_args;rtld.c;84;0.8097271919250488;0-2;LSB bit-flip
+_dl_skip_args;rtld.c;84;0.8793594837188721;0-2;LSB bit-flip

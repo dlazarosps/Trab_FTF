@@ -1,0 +1,110 @@
+bitflips:;5512
+SDCs:;5095
+Crashes:;253
+Simultaneous SDCs and Crashes:;0
+
+FaultModels SDCs:
+FaultModel ;#SDCs; percentage
+Double bit-flip;5095;100.0
+
+FaultModels Crashes:
+FaultModel ;#Crashes; percentage
+Double bit-flip;253;4.965652600588812
+
+Variables that caused SDCs:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+96.70781893004116;243;235;tls_init_tp_called;rtld.c;585
+98.6046511627907;215;212;version_info;rtld.c;747
+97.22222222222221;216;210;_dl_rtld_libname;rtld.c;210
+97.59615384615384;208;203;__libc_enable_secure;../elf/dl-sysdep.c;57
+99.01960784313727;204;202;_dl_argc;rtld.c;82
+96.63461538461539;208;201;any_debug;rtld.c;2239
+91.32420091324201;219;200;_rtld_local_ro;rtld.c;202
+99.49748743718592;199;198;__libc_multiple_libcs;../elf/dl-sysdep.c;58
+97.02970297029702;202;196;preloadlist;rtld.c;745
+98.48484848484848;198;195;_dl_rtld_libname2;rtld.c;211
+96.05911330049261;203;195;start_time;rtld.c;217
+93.71980676328504;207;194;_rtld_global;rtld.c;140
+98.4126984126984;189;186;load_time;rtld.c;216
+88.15165876777252;211;186;__GI__dl_argv;rtld.c;83
+97.88359788359789;189;185;__pointer_chk_guard_local;rtld.c;96
+98.37837837837839;185;182;audit_list;rtld.c;124
+93.78238341968913;193;181;_rtld_global_ro;rtld.c;168
+97.31182795698925;186;181;relocate_time;rtld.c;215
+97.28260869565217;184;179;__GI___libc_enable_secure;../elf/dl-sysdep.c;56
+98.89502762430939;181;179;library_path;rtld.c;743
+91.53439153439153;189;173;_dl_argv;rtld.c;86
+92.22222222222223;180;166;_rtld_local;rtld.c;162
+50.62240663900415;241;122;_dl_skip_args;rtld.c;84
+60.0;190;114;user_entry;../elf/dl-sysdep.c;89
+90.47619047619048;84;76;_IO_file_jumps_maybe_mmap;fileops.c;1586
+92.6829268292683;82;76;__GI__IO_file_jumps;fileops.c;1537
+91.25;80;73;_IO_file_jumps;fileops.c;1560
+94.66666666666667;75;71;preload_file;rtld.c;1551
+92.10526315789474;76;70;_IO_file_jumps_mmap;fileops.c;1562
+91.42857142857143;70;64;rtld_total_time;rtld.c;326
+96.7741935483871;62;60;__PRETTY_FUNCTION__;rtld.c;0
+96.15384615384616;52;50;file_size;rtld.c;794
+86.36363636363636;22;19;ranges;dl-reloc.c;258
+85.71428571428571;7;6;end2;do-rel.h;51
+100.0;3;3;symbol_scope;dl-lookup.c;803
+100.0;3;3;r2;do-rel.h;50
+100.0;2;2;cutoff;../stdlib/strtol_l.c;229
+100.0;2;2;l;dl-reloc.c;311
+100.0;2;2;__strtol_ul_max_tab;../stdlib/strtol_l.c;188
+100.0;2;2;__strtol_ul_rem_tab;../stdlib/strtol_l.c;191
+100.0;1;1;__x86_raw_shared_cache_size_half;../sysdeps/x86_64/cacheinfo.c;469
+100.0;1;1;eof;iogetline.c;48
+100.0;1;1;strtab;dl-lookup.c;396
+100.0;1;1;__PRETTY_FUNCTION__;../elf/dl-runtime.c;0
+100.0;1;1;rtld_multiple_ref;rtld.c;1665
+100.0;1;1;max_dirnamelen;dl-load.c;438
+100.0;1;1;needed_space;dl-deps.c;188
+100.0;1;1;fbp;dl-load.c;890
+100.0;1;1;current_value;dl-lookup.c;809
+100.0;1;1;l_type;dl-load.c;891
+100.0;1;1;__PRETTY_FUNCTION__;dl-version.c;0
+100.0;1;1;__morecore;malloc.c;412
+100.0;1;1;maplength;dl-load.c;898
+100.0;1;1;runp;dl-deps.c;162
+100.0;1;1;sym;../elf/dl-runtime.c;73
+100.0;1;1;old_hash;dl-lookup.c;351
+100.0;1;1;strtab;dl-deps.c;231
+100.0;1;1;system_dirs;dl-load.c;111
+100.0;1;1;__PRETTY_FUNCTION__;fileops.c;0
+100.0;1;1;type;dl-load.c;2188
+100.0;1;1;ncapstr;dl-load.c;102
+100.0;1;1;narenas;arena.c;77
+100.0;1;1;mode;dl-load.c;891
+50.0;2;1;flags;dl-lookup.c;805
+100.0;1;1;cache;dl-cache.c;33
+100.0;1;1;unwind_buf;../csu/libc-start.c;275
+100.0;1;1;make_consistent;dl-load.c;904
+100.0;1;1;receiver;dl-error.c;60
+100.0;1;1;c;dl-error.c;173
+50.0;2;1;buf;iogetline.c;47
+100.0;1;1;_buffer;pthread_once.c;114
+50.0;2;1;ref;dl-lookup.c;351
+100.0;1;1;rtld_search_dirs;dl-load.c;436
+100.0;1;1;symidx;dl-lookup.c;87
+50.0;2;1;__PRETTY_FUNCTION__;dl-load.c;0
+100.0;1;1;flags;dl-lookup.c;353
+100.0;1;1;__free_hook;malloc.c;1850
+100.0;1;1;strtab;dl-lookup.c;88
+100.0;1;1;negative;../stdlib/strtol_l.c;228
+100.0;1;1;lazy;do-rel.h;44
+100.0;1;1;scope;dl-reloc.c;147
+
+Variables that caused Crash:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+45.643153526970956;241;110;_dl_skip_args;rtld.c;84
+38.94736842105263;190;74;user_entry;../elf/dl-sysdep.c;89
+8.530805687203792;211;18;__GI__dl_argv;rtld.c;83
+6.878306878306878;189;13;_dl_argv;rtld.c;86
+5.93607305936073;219;13;_rtld_local_ro;rtld.c;202
+5.0;180;9;_rtld_local;rtld.c;162
+2.898550724637681;207;6;_rtld_global;rtld.c;140
+2.5906735751295336;193;5;_rtld_global_ro;rtld.c;168
+13.636363636363635;22;3;ranges;dl-reloc.c;258
+50.0;2;1;flags;dl-lookup.c;805
+100.0;1;1;c;./dl-map-segments.h;35

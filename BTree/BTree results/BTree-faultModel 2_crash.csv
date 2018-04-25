@@ -1,0 +1,19 @@
+Variable Name;Variable File;Variable Line;Fault Injection Time(s);Injection Time Interval;Fault Model
+_rtld_global;rtld.c;140;0.8876125812530518;0-2;Random bit-flip
+_rtld_global;rtld.c;140;0.4169306755065918;0-2;Random bit-flip
+_rtld_local;rtld.c;162;0.7554929256439209;0-2;Random bit-flip
+_rtld_local;rtld.c;162;0.9155917167663574;0-2;Random bit-flip
+_rtld_local;rtld.c;162;0.7023715972900391;0-2;Random bit-flip
+_dl_skip_args;rtld.c;84;1.171400785446167;0-2;Random bit-flip
+user_entry;../elf/dl-sysdep.c;89;0.40970396995544434;0-2;Random bit-flip
+user_entry;../elf/dl-sysdep.c;89;0.8347775936126709;0-2;Random bit-flip
+user_entry;../elf/dl-sysdep.c;89;0.64333176612854;0-2;Random bit-flip
+_dl_skip_args;rtld.c;84;1.0297551155090332;0-2;Random bit-flip
+_dl_skip_args;rtld.c;84;0.7796456813812256;0-2;Random bit-flip
+_dl_skip_args;rtld.c;84;0.7985489368438721;0-2;Random bit-flip
+_dl_skip_args;rtld.c;84;1.0657672882080078;0-2;Random bit-flip
+ranges;dl-reloc.c;258;0.2839794158935547;0-2;Random bit-flip
+__GI__dl_argv;rtld.c;83;0.6527719497680664;0-2;Random bit-flip
+user_entry;../elf/dl-sysdep.c;89;0.6731834411621094;0-2;Random bit-flip
+_dl_skip_args;rtld.c;84;1.0744998455047607;0-2;Random bit-flip
+_rtld_local_ro;rtld.c;202;0.6945610046386719;0-2;Random bit-flip

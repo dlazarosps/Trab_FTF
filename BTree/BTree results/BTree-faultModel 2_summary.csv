@@ -1,0 +1,34 @@
+bitflips:;7005
+SDCs:;161
+Crashes:;18
+Simultaneous SDCs and Crashes:;0
+
+FaultModels SDCs:
+FaultModel ;#SDCs; percentage
+Random bit-flip;158;98.13664596273291
+Zero bit-flip;3;1.8633540372670807
+
+FaultModels Crashes:
+FaultModel ;#Crashes; percentage
+Random bit-flip;18;11.180124223602485
+
+Variables that caused SDCs:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+14.634146341463413;410;60;__GI__IO_file_jumps;fileops.c;1537
+15.013404825737265;373;56;_IO_file_jumps;fileops.c;1560
+5.865921787709497;358;21;_IO_file_jumps_maybe_mmap;fileops.c;1586
+2.91005291005291;378;11;_IO_file_jumps_mmap;fileops.c;1562
+66.66666666666666;15;10;negative;../stdlib/strtol_l.c;228
+100.0;1;1;thread_arena;arena.c;69
+33.33333333333333;3;1;t;iogetline.c;82
+0.546448087431694;183;1;_rtld_local_ro;rtld.c;202
+
+Variables that caused Crash:
+PVF ;#flips ;#SDCs ;Var name ;file ;line number
+2.8301886792452833;212;6;_dl_skip_args;rtld.c;84
+1.834862385321101;218;4;user_entry;../elf/dl-sysdep.c;89
+1.4084507042253522;213;3;_rtld_local;rtld.c;162
+1.0050251256281406;199;2;_rtld_global;rtld.c;140
+0.46728971962616817;214;1;__GI__dl_argv;rtld.c;83
+0.546448087431694;183;1;_rtld_local_ro;rtld.c;202
+3.0303030303030303;33;1;ranges;dl-reloc.c;258

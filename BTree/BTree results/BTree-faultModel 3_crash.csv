@@ -1,0 +1,7 @@
+Variable Name;Variable File;Variable Line;Fault Injection Time(s);Injection Time Interval;Fault Model
+_rtld_local_ro;rtld.c;202;0.7063684463500977;0-2;Zero bit-flip
+user_entry;../elf/dl-sysdep.c;89;1.2678186893463135;0-2;Zero bit-flip
+user_entry;../elf/dl-sysdep.c;89;0.6216497421264648;0-2;Zero bit-flip
+_rtld_global;rtld.c;140;1.1018662452697754;0-2;Zero bit-flip
+user_entry;../elf/dl-sysdep.c;89;0.7319624423980713;0-2;Zero bit-flip
+user_entry;../elf/dl-sysdep.c;89;1.2099180221557617;0-2;Zero bit-flip
