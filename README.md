@@ -2,10 +2,10 @@
 Trabalho de FTF - Injeção de Falhas - UFRGS
 
 ## Árvores (Data-Structs)
-* AVL Tree
-* Binary Tree
 * BTree
 * RB Tree (_Red and Black_)
+* Splay Tree
+* Tree 234
 
 ## Algoritmo de Teste
 * config _PARAMETERS_
@@ -41,12 +41,12 @@ Trabalho de FTF - Injeção de Falhas - UFRGS
 ```
 ~$ ls
  . Trab_FTF
- ├── /AVL
  ├── /Btree
- ├── /BinaryTree
  ├── /CarolFI (local)
  ├── /Inputs
  ├── /RBTree
+ ├── /SplayTree
+ ├── /Tree234
  ├── inputter.cpp
  ├── Makefile
  └─ README.md
@@ -76,4 +76,3 @@ $ ./fault_injector.py -c ../RBTree/RBTree.conf -i 10
 ## Links
 * Repositório CAROL-FI <https://github.com/UFRGS-CAROL/carol-fi>
 * Repositório RBTree <https://github.com/anandarao/Red-Black-Tree>
-* Repositório AVLTree <https://gist.github.com/Zedonax/4107974>
