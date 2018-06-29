@@ -53,7 +53,9 @@ dkms.conf
 
 #dir CAROL-FI
 carol-fi/
+carol-fi-ftf/
 
 #inputer exe
 inputer
 /RBTree/main
+/RBTree/main_dup
