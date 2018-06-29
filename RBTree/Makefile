@@ -28,13 +28,14 @@ gen_bin_dup: main_dup.cpp RBTree.cpp
 	$(CC) $(CC_FLAGS) -o main_dup main_dup.cpp RBTree.cpp
 
 gen_data_dup: gen_bin_dup
-	./main_dup input_ gold_ /tmp/RBTree-dup-detection.log
+	./main_dup input_ gold_ /tmp/RBTree-dup-detection.log output2_
 
 mv_bin_dup: gen_data_dup
 	mkdir -p $(destDir_dup)
-	mv main $(destDir_dup)
+	mv main_dup $(destDir_dup)
 	cp input_ $(destDir_dup)
 	cp gold_ $(destDir_dup)
+	cp output2_ $(destDir_dup)
 	@echo "All Done, executables should be in the $(destDir_dup)"
 
 clean:
