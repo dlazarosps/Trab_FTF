@@ -25,6 +25,8 @@ class Arvore234{
 		void imprime();
 		void remover(int);
 		bool buscaValor(int);
+		void compare_output(NO *atual_output1, NO *atual_output2, char const *detectLog);
+		void compare_output(Arvore234 a1, Arvore234 b1, char const *detectLog);
 
 	private:
 		NO *raiz;

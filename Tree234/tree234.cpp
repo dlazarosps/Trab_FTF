@@ -6,6 +6,7 @@
 #include <ctime>        // std::time
 #include <cstdlib>      // std::rand, std::srand
 #include <fstream>		// std::fstream
+#include <omp.h>
 #include "tree234.h"
 
 
@@ -381,29 +382,75 @@ bool Arvore234::buscaValor(int valor){
 }
 
 
-int main(int argc, char * argv[]) {
+//MARK: Privado - Imprimir
+void Arvore234::compare_output(NO *atual_output1, NO *atual_output2, char const *detectLog){
+	int quant=atual_output1->quantDados;
+	FILE *fp;
 
-
-	if (argc != 3){
-			cerr << "Uso correto: ./main [input file] [output file] " << endl;
-			return 0;
+	for(int i=0;i<quant;i++) {
+		//fprintf(stderr, "%d   %d \n",atual_output1->dados[i], atual_output2->dados[i] );
+		if (atual_output1->dados[i] != atual_output2->dados[i]){
+			fp = fopen(detectLog, "a");
+			fprintf(fp, "[%d]: %u %u\n",i,atual_output1->dados[i],atual_output2->dados[i]);
+			fclose(fp);
+		}
+	}
+	if(!eFolha(&atual_output1)){
+		for(int i=0;i<=quant;i++)
+			compare_output(atual_output1->ponteiros[i], atual_output2->ponteiros[i], detectLog );
 	}
 
-	//Isso é uma Instancia da classe
-	Arvore234 arvore234 = Arvore234();
 
-	std::ifstream is(argv[1]);
+}
+
+void Arvore234::compare_output(Arvore234 a1, Arvore234 b1, char const *detectLog){
+	Arvore234 a = a1;
+	Arvore234 b = b1;
+
+	compare_output(a.raiz, b.raiz, detectLog);
+}
+
+int main(int argc, char * argv[]) {
+
+	int omp_num_threads;
+	char *detectLogFile;
+
+
+	if (argc != 5){
+			cerr << "Uso correto: ./main [num_threads] [input file] [output file] [detectLog file]" << endl;
+			return 0;
+	} else {
+
+		omp_num_threads = atoi(argv[1]);
+		detectLogFile = argv[4];
+
+	 }
+
+	omp_set_num_threads(omp_num_threads);
+
+	//Isso é uma Instancia da classe
+	Arvore234 arvore1 = Arvore234(); //Var1
+	Arvore234 arvore2 = Arvore234(); //Var2
+
+	std::ifstream is(argv[2]);
 	std::istream_iterator<int> start(is), end;
 	std::vector<int> v_nodes(start, end);
 
 	//insere na arvore
-	for(int i = 0; i < v_nodes.size()+1; i++)
-			arvore234.inserir(v_nodes[i]);
+	for(int i = 0; i < v_nodes.size()+1; i++) {
+			arvore1.inserir(v_nodes[i]);
+			arvore2.inserir(v_nodes[i]);
+	}
 
-	freopen(argv[2],"w",stdout);
-	arvore234.imprime();
+	arvore1.compare_output(arvore1, arvore2, detectLogFile);
+
+
+	freopen(argv[3],"w",stdout);
+	arvore1.imprime();
 
 	fclose(stdout);
+
+
 	return 0;
 
 
