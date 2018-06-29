@@ -18,6 +18,8 @@
 #include <iterator>
 #include <fstream>
 
+#include <omp.h>
+
 using namespace std;
 
 RBTree runner(char* input){
@@ -36,6 +38,28 @@ RBTree runner(char* input){
     return rbTree;
 }
 
+void compare_output(char *input1, char *input2, char *detectLog) {
+
+    fstream file1(input1), file2(input2);
+    FILE *fp;
+    char string1[256], string2[256];
+    int j; j = 0;
+    
+    while(!file1.eof())
+    {
+        file1.getline(string1,256);
+        file2.getline(string2,256);
+        j++;
+        if(strcmp(string1,string2) != 0)
+        {
+            if (fp = fopen(detectLog, "a")) {
+                fprintf(fp, "[%d]: %s %s\n",j,string1,string2);
+                fclose(fp);
+            }
+        }
+    }
+}
+
 int main(int argc, char * argv[]) {
 
     if (argc != 4){
@@ -44,21 +68,30 @@ int main(int argc, char * argv[]) {
     }
 
     RBTree rbTree1, rbTree2; //arvore R&B
+    char output2[9] = "output2_";
 
+    //aplica algoritmo nas duas cópias
+    #pragma omp parallel
+    #pragma omp single
     rbTree1 = runner(argv[1]);
     rbTree2 = runner(argv[1]);
 
     //salva print da saida em arquivo output
+    #pragma omp task
     freopen(argv[2],"w",stdout);
     rbTree1.inorder();
-    // rbTree1.preorder();
     fclose (stdout);
 
-    //salva print da saida em arquivo output
-    freopen(argv[3],"w",stdout);
+
+    // salva print da saida em arquivo output2
+    #pragma omp task
+    freopen(output2,"w",stdout);
     rbTree2.inorder();
-    // rbTree1.preorder();
     fclose (stdout);
+    
+    #pragma omp taskwait
+
+    compare_output(argv[2], output2, argv[3]);
 
     return 0;
 }

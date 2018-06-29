@@ -36,3 +36,10 @@ mv_bin_dup: gen_data_dup
 	cp input_ $(destDir_dup)
 	cp gold_ $(destDir_dup)
 	@echo "All Done, executables should be in the $(destDir_dup)"
+
+clean:
+	clear
+	rm -rf *.o
+	rm -rf main
+	rm -rf output2_
+	rm -rf main_dup
