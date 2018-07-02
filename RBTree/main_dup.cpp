@@ -67,6 +67,12 @@ int main(int argc, char * argv[]) {
         return 0;
     }
 
+    // tempo de execução INIT
+    clock_t start_time, stop_time;
+    double diff_time;
+
+    start_time = clock();
+
     RBTree rbTree1, rbTree2; //arvore R&B
     // char output2[9] = "output2_";
 
@@ -92,6 +98,12 @@ int main(int argc, char * argv[]) {
     // #pragma omp taskwait
 
     compare_output(argv[2], argv[4], argv[3]);
+
+    // tempo de execução FIM
+    stop_time = clock();
+    diff_time = ((stop_time - start_time) / double(CLOCKS_PER_SEC)*1000)/1000;
+
+    cerr << "Time: " << diff_time << "s" << endl;
 
     return 0;
 }

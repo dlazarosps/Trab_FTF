@@ -30,6 +30,12 @@ int main(int argc, char * argv[]) {
     std::ifstream is(argv[1]);
     std::istream_iterator<int> start(is), end;
     std::vector<int> v_nodes(start, end);
+
+    // tempo de execução INIT
+    clock_t start_time, stop_time;
+    double diff_time;
+
+    start_time = clock();
     
     // print the v_nodes to stdout
     /*
@@ -52,6 +58,12 @@ int main(int argc, char * argv[]) {
     rbTree1.inorder();
     // rbTree1.preorder();
     fclose (stdout);
+
+    // tempo de execução FIM
+    stop_time = clock();
+    diff_time = ((stop_time - start_time) / double(CLOCKS_PER_SEC)*1000)/1000;
+
+    cerr << "Time: " << diff_time << "s" << endl;
 
     return 0;
 }
