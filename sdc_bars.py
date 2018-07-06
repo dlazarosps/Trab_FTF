@@ -4,14 +4,17 @@ import difflib
 import glob
 
 ### USO ###
-#  python sdc_bars.py -g ./RBTree/gold_ -o ./RBTree/output2_ -p RBTree-dup-random -d True
+# etapa I
+# python sdc_bars.py -g ./RBTree/gold_ -o ./RBTree/output2_ -p RBTree-random -d 0
+# etapa II
+# python sdc_bars.py -g ./RBTree/gold_ -o ./RBTree/output2_ -p RBTree-dup-random -d 1 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-g', '--gold', dest="goldResult", help=' gold file', required=True)
     parser.add_argument('-o', '--out', dest="outputResult", help='output file', required=True)
     parser.add_argument('-p', '--path', dest="pathName", help='path name', required=True)
-    parser.add_argument('-d', '--detected', dest="isDetect", help='SDCs Detected', required=True, type=bool)
+    parser.add_argument('-d', '--detected', dest="isDetect", help='SDCs Detected', required=True)
     
     args = parser.parse_args()
     
@@ -42,10 +45,10 @@ def main():
     ### SCRIPT ###
 
     # path do output com sdcs no logs do CAROLFI
-    if args.isDetect:
-        completePath = '/home/dlazarosps/Documentos/FTF/Trab_FTF/carol-fi-ftf/logs/'+args.pathName+'/sdcs-detected/**/**/output_'
+    if args.isDetect == 1:
+        completePath = '/home/dlazarosps/Documentos/FTF/Trab_FTF/carol-fi-ftf/logs/'+args.pathName+'/sdcs-detected/**/**/output_' #etapa II
     else:
-        completePath = '/home/dlazarosps/Documentos/FTF/Trab_FTF/carol-fi-ftf/logs/'+args.pathName+'/sdcs/**/**/output_'
+        completePath = '/home/dlazarosps/Documentos/FTF/Trab_FTF/carol-fi/logs/'+args.pathName+'/sdcs/**/**/output_' #etapa I
 
 
     # PARA cada output encontrado no log faz a interseccao com o GOLD e PRINT a diferenca
