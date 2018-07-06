@@ -48,6 +48,8 @@ def main():
     # path do output com sdcs no logs do CAROLFI
     if args.isDetect == '1':
         completePath = '/home/dlazarosps/Documentos/FTF/Trab_FTF/carol-fi-ftf/logs/'+args.pathName+'/sdcs-detected/**/**/output_' #etapa II
+    elif args.isDetect == '2':
+        completePath = '/home/dlazarosps/Documentos/FTF/Trab_FTF/carol-fi-ftf/logs/'+args.pathName+'/sdcs/**/**/output_' #etapa II
     else:
         completePath = '/home/dlazarosps/Documentos/FTF/Trab_FTF/carol-fi/logs/'+args.pathName+'/sdcs/**/**/output_' #etapa I
 
@@ -56,7 +58,7 @@ def main():
     p60 = 0
     p70 = 0
     p80 = 0
-    p90 = 0
+    # p90 = 0
 
 
     # PARA cada output encontrado no log faz a interseccao com o GOLD e PRINT a diferenca
@@ -77,23 +79,23 @@ def main():
         print("output corruption : "+"{:.3%}".format(percent)) 
         print "---\n\n"
 
-        if percent < 0.5:
+        if percent < 0.1:
             p40 += 1
-        elif percent < 0.6:
+        elif percent < 0.25:
             p50 += 1
-        elif percent < 0.7:
+        elif percent < 0.50:
             p60 += 1
-        elif percent < 0.8:
+        elif percent < 0.75:
             p70 += 1
-        elif percent < 0.9:
+        elif percent >= 0.75:
             p80 += 1
-        else:
-            p90 += 1
+        # else:
+        #     p90 += 1
             
         # count += 1
     print "Count in percent"
-    print("p40", "p50", "p60", "p70", "p80", "p90")
-    print(p40, p50, p60, p70, p80, p90)
+    # print("p40", "p50", "p60", "p70", "p80", "p90")
+    print(p40, p50, p60, p70, p80)
 
 
 if __name__ == "__main__":
