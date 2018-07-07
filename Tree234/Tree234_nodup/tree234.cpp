@@ -389,6 +389,11 @@ int main(int argc, char * argv[]) {
 			return 0;
 	}
 
+	clock_t start_time, stop_time;
+   double diff_time;
+
+   start_time = clock();
+
 	//Isso é uma Instancia da classe
 	Arvore234 arvore234 = Arvore234();
 
@@ -404,6 +409,11 @@ int main(int argc, char * argv[]) {
 	arvore234.imprime();
 
 	fclose(stdout);
+	
+	stop_time = clock();
+  diff_time = ((stop_time - start_time) / double(CLOCKS_PER_SEC)*1000)/1000;
+
+  cerr << "Time: " << diff_time << "s" << endl;
 	return 0;
 
 

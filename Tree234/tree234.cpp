@@ -30,7 +30,7 @@ bool Arvore234::eRaiz(NO **atual){ //**
 	else
 		return false;
 }
-//MARK: Privado - E Folha?
+
 //Verifica se o NO e folha, observando se o filho mais a esquerda (posicao 0) e nulo
 bool Arvore234::eFolha(NO **atual){ //**
 	if((*atual)->ponteiros[0] == 0)
@@ -39,7 +39,7 @@ bool Arvore234::eFolha(NO **atual){ //**
 		return false;
 }
 
-//MARK: Privado - Funcao auxiliar de busca
+
 //Verifica se o NO atual contem o valor.
 bool Arvore234::estanoNo(NO **atual, int valor){ //**
 	int quant = (*atual)->quantDados;
@@ -50,7 +50,7 @@ bool Arvore234::estanoNo(NO **atual, int valor){ //**
 	return false;
 }
 
-//MARK: Privado - Encontrar Filho
+
 //Funcao utilizada tanto na funcao de busca e insercao
 //procura em qual filho do NO possivelmente esta o valor buscado
 NO* Arvore234::encontraNoFilho(NO **atual, int valor){ //**
@@ -81,7 +81,7 @@ NO* Arvore234::busca(int valor){ //**
 	return 0;
 }
 
-//MARK: Publico - Funcao inserir
+
 void Arvore234::inserir(int valor){
 	NO *atual = raiz;
 	while(1){
@@ -102,7 +102,7 @@ void Arvore234::inserir(int valor){
 }
 
 
-//MARK: Privado - Divide, essa funcao contem os dois tipos de divisao, Dividir
+
 //Raiz e o primeiro caso, se nao for raiz, tem o SENAO que dividira o NO atual
 void Arvore234::divide(NO **atual){
 	//se for raiz
@@ -163,8 +163,8 @@ void Arvore234::divide(NO **atual){
 	bubblesort(&(*atual)->pai);
 }
 
-//MARK: Privado - Inserir valor e auxiliar da funcao publica Inserir, quando todo
-//quando a busca pela espaco estiver pronto, chamamos a funcao que ira inserir
+
+//Quando a busca pela espaco estiver pronto, chamamos a funcao que ira inserir
 //o valor na arvore
 void Arvore234::inserirValor(NO **atual, int valor){
 	int quant = (*atual)->quantDados;
@@ -173,7 +173,7 @@ void Arvore234::inserirValor(NO **atual, int valor){
 	bubblesort(atual);
 }
 
-//MARK: Privado - Ordena os dados do vetor de [chaves] apos Inserir ou uma divisao
+
 void Arvore234::bubblesort(NO **atual){
 	int quant = (*atual)->quantDados;
 	int temp;
@@ -202,7 +202,7 @@ void Arvore234::bubblesort(NO **atual){
 	}
 }
 
-//MARK: Privado - Encontrar o sucessor na hora que remover o NO
+
 NO* Arvore234::encontraSucessor(NO *atual, int valor){
 	if(!eFolha(&atual)){
 		for(int i=0;i<atual->quantDados;i++){
@@ -218,7 +218,7 @@ NO* Arvore234::encontraSucessor(NO *atual, int valor){
 	return atual;
 }
 
-//MARK: Privado - Exclui o NO, funcao auxiliar do remover
+
 void Arvore234::exclui(NO *atual, int valor){
 	int pos;
 	for(int i=0;i<atual->quantDados;i++){
@@ -382,32 +382,70 @@ bool Arvore234::buscaValor(int valor){
 }
 
 
-//MARK: Privado - Imprimir
-void Arvore234::compare_output(NO *atual_output1, NO *atual_output2, char const *detectLog){
-	int quant=atual_output1->quantDados;
-	FILE *fp;
+// //MARK: Privado - Imprimir
+// void Arvore234::compare_output(NO *atual_output1, NO *atual_output2, char const *detectLog){
+// 	int quant=atual_output1->quantDados;
+// 	FILE *fp;
+// 	fp = fopen(detectLog, "a");
+// 	for(int i=0;i<quant;i++) {
+// 		//fprintf(stderr, "%d   %d \n",atual_output1->dados[i], atual_output2->dados[i] );
+// 		if (atual_output1->dados[i] != atual_output2->dados[i]){
+// 			fprintf(fp, "[%d]: %u %u\n",i,atual_output1->dados[i],atual_output2->dados[i]);
+// 		}
+// 	}
+// 	fclose(fp);
+// 	if(!eFolha(&atual_output1)){
+// 		for(int i=0;i<=quant;i++)
+// 			compare_output(atual_output1->ponteiros[i], atual_output2->ponteiros[i], detectLog );
+// 	}
+//
+//
+// }
+//
+// void Arvore234::compare_output(Arvore234 a1, Arvore234 b1, char const *detectLog){
+// 	Arvore234 a = a1;
+// 	Arvore234 b = b1;
+//
+// 	compare_output(a.raiz, b.raiz, detectLog);
+// }
 
-	for(int i=0;i<quant;i++) {
-		//fprintf(stderr, "%d   %d \n",atual_output1->dados[i], atual_output2->dados[i] );
-		if (atual_output1->dados[i] != atual_output2->dados[i]){
-			fp = fopen(detectLog, "a");
-			fprintf(fp, "[%d]: %u %u\n",i,atual_output1->dados[i],atual_output2->dados[i]);
-			fclose(fp);
-		}
-	}
-	if(!eFolha(&atual_output1)){
-		for(int i=0;i<=quant;i++)
-			compare_output(atual_output1->ponteiros[i], atual_output2->ponteiros[i], detectLog );
-	}
+Arvore234 runner(char* input){
 
+    Arvore234 a1; //arvore R&B
 
+    //input file
+    ifstream is(input);
+    istream_iterator<int> start(is), end;
+    vector<int> v_nodes(start, end);
+
+    //insere na arvore
+    for(int i = 0; i < v_nodes.size(); i++)
+        a1.inserir(v_nodes[i]);
+
+    return a1;
 }
 
-void Arvore234::compare_output(Arvore234 a1, Arvore234 b1, char const *detectLog){
-	Arvore234 a = a1;
-	Arvore234 b = b1;
 
-	compare_output(a.raiz, b.raiz, detectLog);
+void compare_output(char *input1, char *input2, char *detectLog) {
+
+    fstream file1(input1), file2(input2);
+    FILE *fp;
+    char string1[256], string2[256];
+    int j; j = 0;
+
+    while(!file1.eof())
+    {
+        file1.getline(string1,256);
+        file2.getline(string2,256);
+        j++;
+        if(strcmp(string1,string2) != 0)
+        {
+            if (fp = fopen(detectLog, "a")) {
+                fprintf(fp, "[%d]: %s %s\n",j,string1,string2);
+                fclose(fp);
+            }
+        }
+    }
 }
 
 int main(int argc, char * argv[]) {
@@ -417,38 +455,60 @@ int main(int argc, char * argv[]) {
 
 
 	if (argc != 5){
-			cerr << "Uso correto: ./main [num_threads] [input file] [output file] [detectLog file]" << endl;
+			cerr << "Uso correto: ./main [input file] [output file] [detectLog file] [output2 file]" << endl;
 			return 0;
 	} else {
 
-		omp_num_threads = atoi(argv[1]);
-		detectLogFile = argv[4];
+		// omp_num_threads = atoi(argv[1]);
+		detectLogFile = argv[3];
 
 	 }
 
-	omp_set_num_threads(omp_num_threads);
+	//omp_set_num_threads(omp_num_threads);
+
+	clock_t start_time, stop_time;
+   double diff_time;
+
+   start_time = clock();
 
 	//Isso é uma Instancia da classe
-	Arvore234 arvore1 = Arvore234(); //Var1
-	Arvore234 arvore2 = Arvore234(); //Var2
+	Arvore234 arvore1 = runner(argv[1]); //Var1
+	Arvore234 arvore2 = runner(argv[1]); //Var2
 
-	std::ifstream is(argv[2]);
-	std::istream_iterator<int> start(is), end;
-	std::vector<int> v_nodes(start, end);
+	// std::ifstream is(argv[2]);
+	// std::istream_iterator<int> start(is), end;
+	// std::vector<int> v_nodes(start, end);
+	//
+	// //insere na arvore
+	// for(int i = 0; i < v_nodes.size()+1; i++) {
+	// 		arvore1.inserir(v_nodes[i]);
+	// 		arvore2.inserir(v_nodes[i]);
+	// }
 
-	//insere na arvore
-	for(int i = 0; i < v_nodes.size()+1; i++) {
-			arvore1.inserir(v_nodes[i]);
-			arvore2.inserir(v_nodes[i]);
-	}
-
-	arvore1.compare_output(arvore1, arvore2, detectLogFile);
-
-
-	freopen(argv[3],"w",stdout);
+	//salva print da saida em arquivo output
+	// #pragma omp task
+	freopen(argv[2],"w",stdout);
 	arvore1.imprime();
+	fclose (stdout);
 
-	fclose(stdout);
+
+	// salva print da saida em arquivo output2
+	// #pragma omp task
+	freopen(argv[4],"w",stdout);
+	arvore2.imprime();
+	fclose (stdout);
+
+	compare_output(argv[2], argv[4], argv[3]);
+
+
+	stop_time = clock();
+	diff_time = ((stop_time - start_time) / double(CLOCKS_PER_SEC)*1000)/1000;
+
+	cerr << "Time: " << diff_time << "s" << endl;
+	// freopen(argv[3],"w",stdout);
+	// arvore1.imprime();
+	//
+	// fclose(stdout);
 
 
 	return 0;
